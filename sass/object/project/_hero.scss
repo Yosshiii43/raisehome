@@ -6,12 +6,25 @@
 @use "../../foundation/forwords" as fw;
 
 .p-hero {
+  position: relative; //明示的にする
+  overflow: hidden; //明示的にする
   height: 835px;
-  background: url('image/img_hero1_pc.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
+
+  .parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url('image/img_hero1_pc.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 130%;
+  will-change: transform;
+}
 }
 
 .p-hero__content { 

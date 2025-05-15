@@ -6,10 +6,18 @@
 @use "../../foundation/forwords" as fw;
 
 .c-parallax {
-  background-attachment: fixed;
-  position: relative;
+  position: relative;      // 背景ラッパーを absolute で置く土台
+  overflow: hidden;        // はみ出した背景画像を隠す
+}
 
-  @include fw.sp {
-    background-attachment: scroll;// SPだけパララックス解除
-  }
+/* 背景ラッパー */
+.parallax-bg {
+  position: absolute;
+  inset: 0;                // top/right/bottom/left = 0
+  z-index: -1;             // コンテンツより背面に
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 120%;            // ★ セクションより “少し背伸び” させる
+  will-change: transform;  // GPU にヒント
 }

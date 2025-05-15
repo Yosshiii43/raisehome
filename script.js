@@ -2,14 +2,19 @@
  * パララックス処理
  **********************************/
 
-// 背景パララックスの位置を更新
+/***** パララックス更新 *****/
 function updateParallax() {
   const parallaxEls = document.querySelectorAll('.js-parallax');
+
   parallaxEls.forEach(el => {
-    const speed = parseFloat(el.dataset.speed) || 0.5;
-    const rect  = el.getBoundingClientRect();
-    const offset = -(rect.top * speed);
-    el.style.backgroundPositionY = `${offset}px`;
+    const speed   = parseFloat(el.dataset.speed) || 0.3;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const offset  = (scrollY - el.offsetTop) * speed;
+
+    /* ★ 背景ラッパーを取得して translateY で動かす */
+    const bg = el.querySelector('.parallax-bg');
+    if (!bg) return;
+    bg.style.transform = `translateY(${offset}px)`;
   });
 }
 
@@ -37,6 +42,7 @@ function initParallax() {
 
 function initHeroSlider() {
   const heroSection = document.querySelector('#hero');
+  const bg = heroSection?.querySelector('.parallax-bg'); // ← 背景ラッパー取得
   const dots = document.querySelectorAll('.p-hero__dot');
   const slides = [
     'image/img_hero1_pc.jpg',
@@ -44,27 +50,22 @@ function initHeroSlider() {
     'image/img_hero3_pc.jpg'
   ];
 
-  if (!heroSection) return;
+  if (!heroSection || !bg) return;
 
   let currentSlide = 0;
 
   function updateSlide(index) {
-    // ドットの切り替え
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
 
-    // フェードしながら画像切り替え
     heroSection.style.opacity = '0';
     setTimeout(() => {
-      heroSection.style.backgroundImage = `url(${slides[index]})`;
+      bg.style.backgroundImage = `url(${slides[index]})`;
       heroSection.style.opacity = '1';
-
-      // パララックス位置も再調整
-      updateParallax();
+      updateParallax(); // 位置調整
     }, 300);
   }
 
-  // ドットクリックでスライド切り替え
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       currentSlide = index;
@@ -72,14 +73,13 @@ function initHeroSlider() {
     });
   });
 
-  // 自動スライド切り替え（5秒ごと）
   setInterval(() => {
     currentSlide = (currentSlide + 1) % slides.length;
     updateSlide(currentSlide);
   }, 5000);
 
-  // 初期表示
-  heroSection.style.backgroundImage = `url(${slides[0]})`;
+  // 初期化
+  bg.style.backgroundImage = `url(${slides[0]})`;
   updateSlide(currentSlide);
 }
 

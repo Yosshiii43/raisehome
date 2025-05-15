@@ -434,12 +434,24 @@ a {
 ヒーローセクション
 =======================*/
 .p-hero {
+  position: relative;
+  overflow: hidden;
   height: 835px;
-  background: url("image/img_hero1_pc.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease;
+}
+.p-hero .parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("image/img_hero1_pc.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 130%;
+  will-change: transform;
 }
 
 .p-hero__content {
@@ -610,9 +622,8 @@ a {
 /*=======================
 フロントページ　ワークスセクション
 =======================*/
-.p-works {
-  background: url("../image/img_worksbg01.jpg") center/cover no-repeat;
-  position: relative;
+.p-works .parallax-bg {
+  background-image: url("../image/img_worksbg01.jpg");
 }
 
 .p-works .c-sectionTitle {
@@ -729,10 +740,8 @@ a {
 /*=======================
 フロントページ　コンタクトセクション
 =======================*/
-.p-contact {
-  height: 631px;
-  position: relative;
-  background: url("../image/img_contact01.jpg") center/cover no-repeat;
+.p-contact .parallax-bg {
+  background-image: url("../image/img_contact01.jpg");
 }
 
 .p-contact .c-sectionTitle {
@@ -740,12 +749,9 @@ a {
 }
 
 .p-contact__card {
-  position: absolute;
-  bottom: 96px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 600px;
   padding: 48px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid #FFFFFF;
   text-align: center;
@@ -970,13 +976,19 @@ a {
 パララックス
 =======================*/
 .c-parallax {
-  background-attachment: fixed;
   position: relative;
-  background-position: center 40%;
+  overflow: hidden;
 }
-@media (max-width: 767px) {
-  .c-parallax {
-    background-attachment: scroll;
-  }
+
+/* 背景ラッパー */
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 120%;
+  will-change: transform;
 }
 /*# sourceMappingURL=style.css.map */

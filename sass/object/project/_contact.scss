@@ -5,22 +5,17 @@
 @use "sass:math";
 @use "../../foundation/forwords" as fw;
 
-.p-contact {
-  height: 631px;
-  position: relative;
-  background: url('../image/img_contact01.jpg') center/cover no-repeat;
+.p-contact .parallax-bg {
+  background-image: url('../image/img_contact01.jpg');
 }
 .p-contact .c-sectionTitle { 
   color: fw.$color--lightgray; 
 }
 
 .p-contact__card {
-  position: absolute;
-  bottom: 96px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 600px;
   padding: 48px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid fw.$color--white;
   text-align: center;
