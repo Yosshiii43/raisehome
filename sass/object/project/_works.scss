@@ -6,8 +6,7 @@
 @use "../../foundation/forwords" as fw;
 
 .p-works {
-  background-image: url('../image/img_worksbg01.jpg');
-  background-size: cover;
+  background: url('../image/img_worksbg01.jpg') center/cover no-repeat;
   position: relative;
 }
 .p-works .c-sectionTitle { 

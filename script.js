@@ -1,56 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
-  /* ---------- 基本取得 ---------- */
-  const heroSection = document.querySelector('#hero');
-  const dots        = document.querySelectorAll('.p-hero__dot');
-  const header      = document.querySelector('#header');
+/**********************************
+ * パララックス処理
+ **********************************/
 
-  /* ---------- スライダー設定 ---------- */
-  let currentSlide = 0;
-  const slides = [
-    'image/img_hero1_pc.jpg',
-    'image/img_hero2_pc.jpg',
-    'image/img_hero3_pc.jpg'
-  ];
+// 背景パララックスの位置を更新
+function updateParallax() {
+  const parallaxEls = document.querySelectorAll('.js-parallax');
+  parallaxEls.forEach(el => {
+    const speed = parseFloat(el.dataset.speed) || 0.5;
+    const rect  = el.getBoundingClientRect();
+    const offset = -(rect.top * speed);
+    el.style.backgroundPositionY = `${offset}px`;
+  });
+}
 
-  /* ---------- パララックス関数 ---------- */
-  function onScrollParallax() {
-    const heroHeight = heroSection.offsetHeight;
-    const scrollY    = window.pageYOffset;
-
-    if (scrollY < heroHeight) {
-      // 画像をゆっくり「上へ」動かす  ← ★ 符号をマイナスに変更
-      heroSection.style.backgroundPositionY = `${-(scrollY * 0.5)}px`;
-    } else {
-      heroSection.style.backgroundPositionY = `${-(heroHeight * 0.5)}px`;
-    }
-  }
-
-  /* ---------- スクロールイベント最適化 ---------- */
+// スクロールイベントにパララックス処理を紐づけ
+function initParallax() {
   let ticking = false;
+
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        onScrollParallax();
+        updateParallax();
         ticking = false;
       });
       ticking = true;
     }
   });
 
-  /* ---------- スライド切り替え ---------- */
+  updateParallax(); // 初期位置合わせ
+}
+
+
+/**********************************
+ * ヒーロースライダー処理
+ **********************************/
+
+function initHeroSlider() {
+  const heroSection = document.querySelector('#hero');
+  const dots = document.querySelectorAll('.p-hero__dot');
+  const slides = [
+    'image/img_hero1_pc.jpg',
+    'image/img_hero2_pc.jpg',
+    'image/img_hero3_pc.jpg'
+  ];
+
+  if (!heroSection) return;
+
+  let currentSlide = 0;
+
   function updateSlide(index) {
+    // ドットの切り替え
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
 
+    // フェードしながら画像切り替え
     heroSection.style.opacity = '0';
     setTimeout(() => {
       heroSection.style.backgroundImage = `url(${slides[index]})`;
       heroSection.style.opacity = '1';
-      onScrollParallax();          // 画像変更後にパララックスを再計算
+
+      // パララックス位置も再調整
+      updateParallax();
     }, 300);
   }
 
-  /* ドットクリック */
+  // ドットクリックでスライド切り替え
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       currentSlide = index;
@@ -58,14 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 自動切り替え */
+  // 自動スライド切り替え（5秒ごと）
   setInterval(() => {
     currentSlide = (currentSlide + 1) % slides.length;
     updateSlide(currentSlide);
   }, 5000);
 
-  /* ---------- 初期化 ---------- */
+  // 初期表示
   heroSection.style.backgroundImage = `url(${slides[0]})`;
-  onScrollParallax();                     // 初回位置調整
-  header.style.backgroundColor = 'rgba(255, 255, 255, 0.7)'; // 透過 0.7 固定
+  updateSlide(currentSlide);
+}
+
+
+/**********************************
+ * 初期化処理（DOM読み込み後に実行）
+ **********************************/
+document.addEventListener('DOMContentLoaded', () => {
+  initParallax();
+  initHeroSlider();
 });

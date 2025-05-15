@@ -436,8 +436,6 @@ a {
 .p-hero {
   height: 835px;
   background: url("image/img_hero1_pc.jpg") center/cover no-repeat;
-  background-attachment: fixed;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -613,8 +611,7 @@ a {
 フロントページ　ワークスセクション
 =======================*/
 .p-works {
-  background-image: url("../image/img_worksbg01.jpg");
-  background-size: cover;
+  background: url("../image/img_worksbg01.jpg") center/cover no-repeat;
   position: relative;
 }
 
@@ -734,10 +731,8 @@ a {
 =======================*/
 .p-contact {
   height: 631px;
-  background-size: cover;
-  background-position: center;
   position: relative;
-  background-image: url("../image/img_contact01.jpg");
+  background: url("../image/img_contact01.jpg") center/cover no-repeat;
 }
 
 .p-contact .c-sectionTitle {
@@ -969,5 +964,19 @@ a {
 
 .c-btn--primary::after {
   filter: invert(100%);
+}
+
+/*=======================
+パララックス
+=======================*/
+.c-parallax {
+  background-attachment: fixed;
+  position: relative;
+  background-position: center 40%;
+}
+@media (max-width: 767px) {
+  .c-parallax {
+    background-attachment: scroll;
+  }
 }
 /*# sourceMappingURL=style.css.map */

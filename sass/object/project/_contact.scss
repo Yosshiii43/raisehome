@@ -7,10 +7,8 @@
 
 .p-contact {
   height: 631px;
-  background-size: cover;
-  background-position: center;
   position: relative;
-  background-image: url('../image/img_contact01.jpg');
+  background: url('../image/img_contact01.jpg') center/cover no-repeat;
 }
 .p-contact .c-sectionTitle { 
   color: fw.$color--lightgray; 

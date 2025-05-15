@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/*=======================
+パララックス
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-parallax {
+  background-attachment: fixed;
+  position: relative;
+
+  @include fw.sp {
+    background-attachment: scroll;// SPだけパララックス解除
+  }
+}
