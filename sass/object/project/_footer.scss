@@ -1,0 +1,68 @@
+@charset "UTF-8";
+/*=======================
+フッター
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.p-footer {
+  background: fw.$color--gray;
+  padding: 78px 0 99px;
+  color: fw.$color--white;
+  text-align: center;
+  position: relative;
+}
+
+.p-footer__content {
+  display:flex; 
+  flex-wrap:wrap; 
+  align-items:center; 
+  justify-content:center;
+  gap:58px; 
+  padding:0 180px; margin-bottom:32px;
+}
+@media (min-width:1230px){
+  .p-footer__content{ 
+    justify-content:space-between; 
+  }
+}
+
+/* FooterNav */
+.c-footerNav { 
+  display:flex; 
+  flex-wrap:wrap; 
+  justify-content:center; 
+  align-items:center; 
+  gap:64px; }
+.c-footerNav__link { 
+  color: fw.$color--white; 
+  text-decoration :none; 
+  font-size: 16px; 
+  transition:opacity .3s; }
+.c-footerNav__link:hover { 
+  opacity:.7; 
+}
+
+/* SNS */
+.c-sns { 
+  display:flex; 
+  gap:24px; 
+  justify-content:center; 
+}
+.c-sns img { 
+  width:28px; 
+  height:28px; 
+  transition:opacity .3s; 
+}
+.c-sns a:hover img { 
+  opacity:.7; 
+}
+
+.p-footerCopyright{
+  font-size:13px; 
+  letter-spacing:.26px;
+  position:absolute; 
+  bottom:24px; 
+  left:50%; 
+  transform:translateX(-50%);
+}

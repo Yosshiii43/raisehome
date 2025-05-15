@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*=======================
+フロントページ　サービスセクション
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.p-service__content { 
+  max-width:1080px; 
+  margin:0 auto; 
+  text-align:center; 
+}
+.p-service__subtitle {
+  font-size: 32px; 
+  font-weight: 500; 
+  margin-bottom: 24px; 
+  line-height: 1.75;
+}
+.p-service__text {
+  max-width: 680px; 
+  margin: 0 auto 40px; 
+  line-height: 1.75; 
+  font-size: 16px;
+}
+.p-service__cards { 
+  display:flex; 
+  gap:40px; 
+  justify-content:center; 
+}
+.p-service__card {
+  width: 520px; 
+  height: 293px; 
+  background-size:cover; 
+  background-position:center;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+}
+
+.p-service__card:first-of-type {
+  background-image: url('../image/img_service_customer.jpg');
+}
+
+.p-service__card:last-of-type {
+  background-image: url('../image/img_service_houjin.jpg');
+}

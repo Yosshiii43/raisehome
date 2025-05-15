@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/*=======================
+フロントページ　ラップ
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-frontWrap {
+  padding: 56px 32px 88px;
+}

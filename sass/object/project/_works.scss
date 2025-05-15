@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/*=======================
+フロントページ　ワークスセクション
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.p-works {
+  background-image: url('../image/img_worksbg01.jpg');
+  background-size: cover;
+  position: relative;
+}
+.p-works .c-sectionTitle { 
+  color: fw.$color--lightgray; 
+}
+.p-works::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+.p-works__content { 
+  position: relative; 
+  max-width: 1440px; 
+  margin: 0 auto; 
+}
+.p-works__grid { 
+  display:flex; 
+  gap:8px; 
+  max-width: 1076px;
+  width: 100%;         /* 画面が狭いときは親幅いっぱい */
+  margin-top:32px; 
+  margin-inline: auto; /* 中央寄せ */
+}
+.p-works__mainImage,
+.p-works__subImages {
+  flex:1 1 0;   /* grow=1 / shrink=1 / basis=0   ←★ここがキモ */
+  min-width:0;  /* はみ出し防止 */
+}
+.p-works__mainImage { 
+  flex:0 1 375px;          /* 基準 375px、必要なら縮む */
+  max-width:375px;         /* フルサイズ上限 */
+  aspect-ratio:375/444;    /* 比率キープ */
+  width:100%;              /* 縮小時は親幅に従う */
+  height:auto;
+  object-fit:cover; 
+}
+.p-works__subImages { 
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  flex:0 1 698px;          /* 基準 698px、必要なら縮む */
+  max-width:698px;
+  width:100%;
+}
+.p-works__subImage { 
+  aspect-ratio:345/218;    /* 基準比率を維持 */
+  width:100%;              /* グリッド幅に追従 */
+  height:auto;
+  object-fit:cover;
+ }

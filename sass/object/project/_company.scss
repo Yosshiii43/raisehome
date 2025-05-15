@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/*=======================
+フロントページ　カンパニーセクション
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.p-company__content { 
+  display: flex;
+  align-items: flex-start;
+  gap: 8.33%;
+  max-width: 1080px; 
+  margin-inline: auto;
+}
+.p-company__image,
+.p-company__info{
+  flex:1 1 0;   /* grow=1 / shrink=1 / basis=0   ←★ここがキモ */
+  min-width:0;  /* はみ出し防止 */
+}
+
+.p-company__image { 
+  flex:0 1 560px;
+  max-width:560px; 
+  aspect-ratio: 560/335;
+  width: 100%;
+  height: auto;
+  object-fit:cover; 
+}
+.p-company__info { 
+  flex:0 1 480px;
+  max-width:480px; 
+  display:flex; 
+  flex-direction:column; 
+  gap:24px; 
+}
+.p-company__subtitle { 
+  font-size:32px; 
+  font-weight:500; 
+  line-height:1.75; 
+}
+.p-company__text { 
+  line-height:1.75; 
+  font-size:16px; 
+  margin-bottom:16px; 
+}
+.p-company__buttons {
+   display:flex; 
+   gap:8.33%; 
+  }

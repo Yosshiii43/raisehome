@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*=======================
+セクションタイトル
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-sectionTitle {
+  font-family: 'Gruppo', sans-serif;
+  font-size: 160px;
+  color: fw.$color--bluegray;
+  margin-bottom: 32px;
+  margin-left: 12.65%;
+  font-weight: 400;
+  line-height: normal;
+}
+.c-sectionTitle--lightGray {
+  color: fw.$color--lightgray;
+}

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*=======================
+ロゴ
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-logo {
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}

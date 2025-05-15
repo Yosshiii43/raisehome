@@ -1,154 +1,420 @@
 @charset "UTF-8";
-/************************* foundation/_reset.css *************************/
-/*! destyle.css v1.0.15 | MIT License | https://github.com/nicolas-cusan/destyle.css */
-/* ── ここに destyle.css の全文を入れてください ── */
-/************************* foundation/_base.css *************************/
-:root {
-  --gray: #55504A;
-  --lightgray: #A09A93;
-  --bluegray: #D5DDED;
-  --white: #FFFFFF;
+/*! destyle.css v4.0.1 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* Reset box-model and set borders */
+/* ============================================ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  min-width: 0;
 }
 
-*,
-*::before,
-*::after {
+/* Document */
+/* ============================================ */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
+}
+
+/* Sections */
+/* ============================================ */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* Headings */
+/* ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+ul,
+ol {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  list-style: none;
 }
 
-html {
-  box-sizing: border-box;
+/* Lists (definition) */
+/* ============================================ */
+dt {
+  font-weight: bold;
 }
 
-body {
-  font-family: "Noto Sans JP", sans-serif;
-  color: var(--gray);
+dd {
+  margin-left: 0;
 }
 
-/************************* foundation/_form.css *************************/
-button {
-  padding: 0.6em 1.2em;
-  border: none;
+/* Grouping content */
+/* ============================================ */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Replaced content */
+/* ============================================ */
+/**
+ * Prevent vertical alignment issues.
+ */
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+/**
+ * Reset form fields to make them styleable.
+ * 1. Make form elements stylable across systems iOS especially.
+ * 2. Inherit text-transform from parent.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  -webkit-appearance: none; /* 1 */
+  -moz-appearance: none;
+       appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+/**
+ * Correct cursors for clickable elements.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
   cursor: pointer;
 }
 
-/************************* object/component/_flontWrap.css ********************/
-.c-frontWrap {
-  padding: 56px 32px 88px;
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+  cursor: default;
 }
 
-/************************* object/component/_logo.css *******************/
-.c-logo {
-  position: relative;
-  height: 28px;
-  display: flex;
-  align-items: center;
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+:-moz-focusring {
+  outline: auto;
 }
 
-/************************* object/component/_nav.css ********************/
-.c-nav {
-  display: flex;
-  height: 100%;
+select:disabled {
+  opacity: inherit;
 }
 
-.c-nav__link {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--gray);
+/**
+ * Remove padding
+ */
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the outline style in Safari.
+ */
+[type=search] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Fix font inheritance.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Fix appearance for Firefox
+ */
+/**
+ * Clickable labels
+ */
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* Tables */
+/* ============================================ */
+/**
+1. Correct table border color inheritance in all Chrome and Safari.
+*/
+table {
+  border-color: inherit; /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+/*=======================
+  ベースCSS
+  =======================*/
+html {
   font-size: 16px;
+}
+
+body {
+  min-width: 320px;
+  width: 100%;
+  margin: 0;
+  background: #FFFFFF;
+  font-size: 1rem;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
-  transition: opacity 0.3s ease;
-  padding: 0 20px;
+  font-style: normal;
+  color: #55504A;
+  line-height: 1.75;
 }
 
-.c-nav__link:hover {
-  opacity: 0.7;
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
-.c-nav__link--contact {
-  background: var(--gray);
-  color: var(--white);
-  padding: 0 12px;
+h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
 }
 
-/************************* object/component/_sectionTitle.css ***********/
-.c-sectionTitle {
-  font-family: "Gruppo", sans-serif;
-  font-size: 160px;
-  color: var(--bluegray);
-  margin-bottom: 32px;
-  margin-left: 12.65%;
-  font-weight: 400;
-  line-height: normal;
+ul, ol {
+  list-style-type: none;
 }
 
-/************************* object/component/_card.css *******************/
-.c-card__label {
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--white);
-  font-size: 28px;
-  font-weight: 500;
-}
-
-/************************* object/component/_btn.css ********************/
-.c-btn {
-  width: 220px;
-  padding: 12px 16px;
-  border: 1px solid var(--gray);
-  color: var(--gray);
+a {
+  color: inherit;
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  position: relative;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.c-btn:hover {
-  background-color: var(--gray);
-  color: var(--white);
-}
-
-.c-btn::after {
-  content: "";
-  position: absolute;
-  right: 16px;
-  width: 17px;
-  height: 17px;
-  background: url("../image/icon_arrow01.svg") center/contain no-repeat;
-  filter: invert(22%) sepia(8%) saturate(218%) hue-rotate(11deg) brightness(96%) contrast(96%);
-  transition: transform 0.3s ease;
-}
-
-.c-btn:hover::after {
-  transform: translateX(5px);
-  filter: invert(100%);
-}
-
-.c-btn--primary {
-  padding: 13px 16px;
-  border: none;
-  background: var(--gray);
-  color: var(--white);
-}
-
-.c-btn--primary:hover {
-  background-color: orange;
-}
-
-.c-btn--primary::after {
-  filter: invert(100%);
-}
-
-/************************* object/project/_header.css *************************/
+/*=======================
+ヘッダー
+=======================*/
 .p-header {
   position: fixed;
   top: 0;
@@ -164,7 +430,9 @@ button {
   transition: background-color 0.3s ease;
 }
 
-/************************* object/project/_hero.css *********************/
+/*=======================
+ヒーローセクション
+=======================*/
 .p-hero {
   height: 835px;
   background: url("image/img_hero1_pc.jpg") center/cover no-repeat;
@@ -185,7 +453,7 @@ button {
   display: inline-block;
   padding: 10px 40px 16px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--white);
+  border: 1px solid #FFFFFF;
   font-size: 48px;
   font-weight: 700;
   line-height: 1.4;
@@ -199,8 +467,8 @@ button {
   font-family: "Mina", sans-serif;
   font-size: 41.6px;
   transform: rotate(-11.82deg);
-  -webkit-text-stroke: 0.3px var(--gray);
-  color: var(--gray);
+  -webkit-text-stroke: 0.3px #FFFFFF;
+  color: #55504A;
 }
 
 .p-hero__scroll {
@@ -215,16 +483,16 @@ button {
 
 .p-hero__scroll span {
   font-family: "Gruppo", sans-serif;
-  color: var(--white);
+  color: #FFFFFF;
   font-size: 28px;
-  -webkit-text-stroke: 0.2px var(--white);
+  -webkit-text-stroke: 0.2px #FFFFFF;
 }
 
 /* line animation */
 .p-hero__scroll::before {
   -webkit-animation: scroll 2s infinite;
           animation: scroll 2s infinite;
-  background-color: #FFF;
+  background-color: #FFFFFF;
   bottom: -115px;
   content: "";
   height: 100px;
@@ -285,16 +553,18 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 5px;
-  background: var(--white);
+  background: #FFFFFF;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .p-hero__dot.active {
-  background: var(--gray);
+  background: #55504A;
 }
 
-/************************* object/project/_service.css ******************/
+/*=======================
+フロントページ　サービスセクション
+=======================*/
 .p-service__content {
   max-width: 1080px;
   margin: 0 auto;
@@ -339,7 +609,9 @@ button {
   background-image: url("../image/img_service_houjin.jpg");
 }
 
-/************************* object/project/_works.css ********************/
+/*=======================
+フロントページ　ワークスセクション
+=======================*/
 .p-works {
   background-image: url("../image/img_worksbg01.jpg");
   background-size: cover;
@@ -347,7 +619,7 @@ button {
 }
 
 .p-works .c-sectionTitle {
-  color: var(--lightgray);
+  color: #A09A93;
 }
 
 .p-works::before {
@@ -405,7 +677,9 @@ button {
      object-fit: cover;
 }
 
-/************************* object/project/_company.css ******************/
+/*=======================
+フロントページ　カンパニーセクション
+=======================*/
 .p-company__content {
   display: flex;
   align-items: flex-start;
@@ -455,7 +729,9 @@ button {
   gap: 8.33%;
 }
 
-/************************* object/project/_contact.css ******************/
+/*=======================
+フロントページ　コンタクトセクション
+=======================*/
 .p-contact {
   height: 631px;
   background-size: cover;
@@ -465,7 +741,7 @@ button {
 }
 
 .p-contact .c-sectionTitle {
-  color: var(--lightgray);
+  color: #A09A93;
 }
 
 .p-contact__card {
@@ -476,7 +752,7 @@ button {
   width: 600px;
   padding: 48px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--white);
+  border: 1px solid #FFFFFF;
   text-align: center;
 }
 .p-contact__card .p-contact__title {
@@ -493,16 +769,17 @@ button {
   margin: 0 auto;
 }
 
-/************************* layout/_footer.css ***************************/
-.l-footer {
-  background: var(--gray);
+/*=======================
+フッター
+=======================*/
+.p-footer {
+  background: #55504A;
   padding: 78px 0 99px;
-  color: var(--white);
+  color: #FFFFFF;
   text-align: center;
   position: relative;
 }
 
-/************************* object/project/_footer.css *******************/
 .p-footer__content {
   display: flex;
   flex-wrap: wrap;
@@ -528,7 +805,7 @@ button {
 }
 
 .c-footerNav__link {
-  color: var(--white);
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 16px;
   transition: opacity 0.3s;
@@ -562,5 +839,135 @@ button {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/*=======================
+フロントページ　ラップ
+=======================*/
+.c-frontWrap {
+  padding: 56px 32px 88px;
+}
+
+/*=======================
+ロゴ
+=======================*/
+.c-logo {
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+/*=======================
+グローバルナビゲーション
+=======================*/
+.c-nav {
+  display: flex;
+  height: 100%;
+}
+
+.c-nav__link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  padding: 0 20px;
+}
+
+.c-nav__link:hover {
+  opacity: 0.7;
+}
+
+.c-nav__link--contact {
+  background: #55504A;
+  color: #FFFFFF;
+  padding: 0 12px;
+}
+
+/*=======================
+セクションタイトル
+=======================*/
+.c-sectionTitle {
+  font-family: "Gruppo", sans-serif;
+  font-size: 160px;
+  color: #D5DDED;
+  margin-bottom: 32px;
+  margin-left: 12.65%;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.c-sectionTitle--lightGray {
+  color: #A09A93;
+}
+
+/*=======================
+カード
+=======================*/
+.c-card__label {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #FFFFFF;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/*=======================
+ボタン
+=======================*/
+.c-btn {
+  width: 220px;
+  padding: 12px 16px;
+  border: 1px solid #55504A;
+  color: #55504A;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-btn:hover {
+  background-color: #55504A;
+  color: #FFFFFF;
+}
+
+.c-btn::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  width: 17px;
+  height: 17px;
+  background: url("../image/icon_arrow01.svg") center/contain no-repeat;
+  filter: invert(22%) sepia(8%) saturate(218%) hue-rotate(11deg) brightness(96%) contrast(96%);
+  transition: transform 0.3s ease;
+}
+
+.c-btn:hover::after {
+  transform: translateX(5px);
+  filter: invert(100%);
+}
+
+.c-btn--primary {
+  padding: 13px 16px;
+  border: none;
+  background: #55504A;
+  color: #FFFFFF;
+}
+
+.c-btn--primary:hover {
+  background-color: orange;
+}
+
+.c-btn--primary::after {
+  filter: invert(100%);
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*=======================
+ヘッダー
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.p-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 60px;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}

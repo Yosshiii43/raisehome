@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/*=======================
+ボタン
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-btn {
+  width: 220px;
+  padding: 12px 16px;
+  border: 1px solid fw.$color--gray;
+  color: fw.$color--gray;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-btn:hover {
+  background-color: fw.$color--gray; 
+  color: fw.$color--white; 
+}
+.c-btn::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  width: 17px;
+  height: 17px;
+  background: url("../image/icon_arrow01.svg") center/contain no-repeat;
+  filter: invert(22%) sepia(8%) saturate(218%) hue-rotate(11deg) brightness(96%) contrast(96%);
+  transition: transform 0.3s ease;
+}
+.c-btn:hover::after {
+   transform: translateX(5px); 
+   filter: invert(100%); 
+  }
+
+.c-btn--primary {
+  padding: 13px 16px;
+  border: none;
+  background: fw.$color--gray;
+  color: fw.$color--white;
+}
+.c-btn--primary:hover { 
+  background-color: fw.$color--orange; 
+}
+.c-btn--primary::after {
+  filter: invert(100%);
+}

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*=======================
+グローバルナビゲーション
+=======================*/
+@use "sass:math";
+@use "../../foundation/forwords" as fw;
+
+.c-nav { display: flex; height: 100%; }
+.c-nav__link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  padding: 0 20px;
+}
+.c-nav__link:hover { opacity: 0.7; }
+.c-nav__link--contact {
+  background: fw.$color--gray;
+  color: fw.$color--white;
+  padding: 0 12px;
+}
