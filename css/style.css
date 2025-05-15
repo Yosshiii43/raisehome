@@ -1,0 +1,566 @@
+@charset "UTF-8";
+/************************* foundation/_reset.css *************************/
+/*! destyle.css v1.0.15 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* ── ここに destyle.css の全文を入れてください ── */
+/************************* foundation/_base.css *************************/
+:root {
+  --gray: #55504A;
+  --lightgray: #A09A93;
+  --bluegray: #D5DDED;
+  --white: #FFFFFF;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--gray);
+}
+
+/************************* foundation/_form.css *************************/
+button {
+  padding: 0.6em 1.2em;
+  border: none;
+  cursor: pointer;
+}
+
+/************************* object/component/_flontWrap.css ********************/
+.c-frontWrap {
+  padding: 56px 32px 88px;
+}
+
+/************************* object/component/_logo.css *******************/
+.c-logo {
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+/************************* object/component/_nav.css ********************/
+.c-nav {
+  display: flex;
+  height: 100%;
+}
+
+.c-nav__link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  padding: 0 20px;
+}
+
+.c-nav__link:hover {
+  opacity: 0.7;
+}
+
+.c-nav__link--contact {
+  background: var(--gray);
+  color: var(--white);
+  padding: 0 12px;
+}
+
+/************************* object/component/_sectionTitle.css ***********/
+.c-sectionTitle {
+  font-family: "Gruppo", sans-serif;
+  font-size: 160px;
+  color: var(--bluegray);
+  margin-bottom: 32px;
+  margin-left: 12.65%;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/************************* object/component/_card.css *******************/
+.c-card__label {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--white);
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/************************* object/component/_btn.css ********************/
+.c-btn {
+  width: 220px;
+  padding: 12px 16px;
+  border: 1px solid var(--gray);
+  color: var(--gray);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-btn:hover {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.c-btn::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  width: 17px;
+  height: 17px;
+  background: url("../image/icon_arrow01.svg") center/contain no-repeat;
+  filter: invert(22%) sepia(8%) saturate(218%) hue-rotate(11deg) brightness(96%) contrast(96%);
+  transition: transform 0.3s ease;
+}
+
+.c-btn:hover::after {
+  transform: translateX(5px);
+  filter: invert(100%);
+}
+
+.c-btn--primary {
+  padding: 13px 16px;
+  border: none;
+  background: var(--gray);
+  color: var(--white);
+}
+
+.c-btn--primary:hover {
+  background-color: orange;
+}
+
+.c-btn--primary::after {
+  filter: invert(100%);
+}
+
+/************************* object/project/_header.css *************************/
+.p-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 60px;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+/************************* object/project/_hero.css *********************/
+.p-hero {
+  height: 835px;
+  background: url("image/img_hero1_pc.jpg") center/cover no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.p-hero__content {
+  text-align: center;
+  position: relative;
+}
+
+.p-hero__title {
+  display: inline-block;
+  padding: 10px 40px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--white);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.p-hero__logo {
+  position: absolute;
+  width: 337px;
+  bottom: -25px;
+  left: 48%;
+  font-family: "Mina", sans-serif;
+  font-size: 41.6px;
+  transform: rotate(-11.82deg);
+  -webkit-text-stroke: 0.3px var(--gray);
+  color: var(--gray);
+}
+
+.p-hero__scroll {
+  position: absolute;
+  bottom: 192px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.p-hero__scroll span {
+  font-family: "Gruppo", sans-serif;
+  color: var(--white);
+  font-size: 28px;
+  -webkit-text-stroke: 0.2px var(--white);
+}
+
+/* line animation */
+.p-hero__scroll::before {
+  -webkit-animation: scroll 2s infinite;
+          animation: scroll 2s infinite;
+  background-color: #FFF;
+  bottom: -115px;
+  content: "";
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 1px;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  51% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  51% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+.p-hero__pagination {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+}
+
+.p-hero__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.p-hero__dot.active {
+  background: var(--gray);
+}
+
+/************************* object/project/_service.css ******************/
+.p-service__content {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.p-service__subtitle {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.75;
+}
+
+.p-service__text {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.p-service__cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.p-service__card {
+  width: 520px;
+  height: 293px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-service__card:first-of-type {
+  background-image: url("../image/img_service_customer.jpg");
+}
+
+.p-service__card:last-of-type {
+  background-image: url("../image/img_service_houjin.jpg");
+}
+
+/************************* object/project/_works.css ********************/
+.p-works {
+  background-image: url("../image/img_worksbg01.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.p-works .c-sectionTitle {
+  color: var(--lightgray);
+}
+
+.p-works::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.p-works__content {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.p-works__grid {
+  display: flex;
+  gap: 8px;
+  max-width: 1076px;
+  width: 100%; /* 画面が狭いときは親幅いっぱい */
+  margin-top: 32px;
+  margin-inline: auto; /* 中央寄せ */
+}
+
+.p-works__mainImage,
+.p-works__subImages {
+  flex: 1 1 0; /* grow=1 / shrink=1 / basis=0   ←★ここがキモ */
+  min-width: 0; /* はみ出し防止 */
+}
+
+.p-works__mainImage {
+  flex: 0 1 375px; /* 基準 375px、必要なら縮む */
+  max-width: 375px; /* フルサイズ上限 */
+  aspect-ratio: 375/444; /* 比率キープ */
+  width: 100%; /* 縮小時は親幅に従う */
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-works__subImages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  flex: 0 1 698px; /* 基準 698px、必要なら縮む */
+  max-width: 698px;
+  width: 100%;
+}
+
+.p-works__subImage {
+  aspect-ratio: 345/218; /* 基準比率を維持 */
+  width: 100%; /* グリッド幅に追従 */
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/************************* object/project/_company.css ******************/
+.p-company__content {
+  display: flex;
+  align-items: flex-start;
+  gap: 8.33%;
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+.p-company__image,
+.p-company__info {
+  flex: 1 1 0; /* grow=1 / shrink=1 / basis=0   ←★ここがキモ */
+  min-width: 0; /* はみ出し防止 */
+}
+
+.p-company__image {
+  flex: 0 1 560px;
+  max-width: 560px;
+  aspect-ratio: 560/335;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.p-company__info {
+  flex: 0 1 480px;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.p-company__subtitle {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.p-company__text {
+  line-height: 1.75;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.p-company__buttons {
+  display: flex;
+  gap: 8.33%;
+}
+
+/************************* object/project/_contact.css ******************/
+.p-contact {
+  height: 631px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-image: url("../image/img_contact01.jpg");
+}
+
+.p-contact .c-sectionTitle {
+  color: var(--lightgray);
+}
+
+.p-contact__card {
+  position: absolute;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--white);
+  text-align: center;
+}
+.p-contact__card .p-contact__title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 6.48px;
+  margin-bottom: 32px;
+}
+.p-contact__card .p-contact__text {
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+.p-contact__card .c-btn {
+  margin: 0 auto;
+}
+
+/************************* layout/_footer.css ***************************/
+.l-footer {
+  background: var(--gray);
+  padding: 78px 0 99px;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+}
+
+/************************* object/project/_footer.css *******************/
+.p-footer__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 58px;
+  padding: 0 180px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1230px) {
+  .p-footer__content {
+    justify-content: space-between;
+  }
+}
+/* FooterNav */
+.c-footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+
+.c-footerNav__link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.c-footerNav__link:hover {
+  opacity: 0.7;
+}
+
+/* SNS */
+.c-sns {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.c-sns img {
+  width: 28px;
+  height: 28px;
+  transition: opacity 0.3s;
+}
+
+.c-sns a:hover img {
+  opacity: 0.7;
+}
+
+.p-footerCopyright {
+  font-size: 13px;
+  letter-spacing: 0.26px;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*# sourceMappingURL=style.css.map */
